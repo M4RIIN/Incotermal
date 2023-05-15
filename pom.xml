@@ -7,7 +7,21 @@
     <groupId>org.example</groupId>
     <artifactId>Inconterm</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
+
+        <dep.version>1.0-SNAPSHOT</dep.version>
+    </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.1.1</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -21,15 +35,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <properties>
-
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
-
-        <dep.version>1.0-SNAPSHOT</dep.version>
-    </properties>
 
     <build>
         <plugins>

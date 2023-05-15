@@ -70,6 +70,8 @@ public class CreateSupplyChainView extends JPanel {
                         paiementStrategy = new FobStrategy();
                     }else if(incotermType.equals(IncotermType.CIF)){
                         paiementStrategy = new CifStrategy();
+                    }else if(incotermType.equals(IncotermType.FAS)){
+                        paiementStrategy = new FasStrategy();
                     }
                     Incoterm incoterm = new Incoterm(incotermType,paiementStrategy);
                     SimulationSingleton.getInstance().getSupplyChain().setIncoterm(incoterm);

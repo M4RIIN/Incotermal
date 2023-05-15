@@ -24,22 +24,39 @@ public class ResultView extends JFrame {
         jPanel.add(incortermContainer);
         JLabel fournisseurResult =new JLabel("Cout Fournisseur : " + supplyChain.getCoutsPourPartiePrenante(PartiePrenante.FOURNISSEUR));
         JLabel achteurResult = new JLabel("Cout Acheteur : " + supplyChain.getCoutsPourPartiePrenante(PartiePrenante.ACHETEUR));
+
         JPanel resultContainer = new JPanel(new FlowLayout());
         resultContainer.add(fournisseurResult);
         resultContainer.add(achteurResult);
-        jPanel.add(resultContainer);
+
 
         JTextArea detailFournisseurLabel = new JTextArea(getTextPartiePrenant(PartiePrenante.FOURNISSEUR));
+        detailFournisseurLabel.setFont(detailFournisseurLabel.getFont().deriveFont(11f));
         detailFournisseurLabel.setEditable(false);
         detailFournisseurLabel.setBackground(fournisseurResult.getBackground());
+
         JTextArea detailAcheteurLabel = new JTextArea(getTextPartiePrenant(PartiePrenante.ACHETEUR));
+        detailAcheteurLabel.setFont(detailFournisseurLabel.getFont().deriveFont(11f));
         detailAcheteurLabel.setEditable(false);
         detailAcheteurLabel.setBackground(fournisseurResult.getBackground());
 
         JPanel detailsGridContainer = new JPanel();
         detailsGridContainer.add(detailFournisseurLabel);
         detailsGridContainer.add(detailAcheteurLabel);
-        detailsGridContainer.setLayout(new GridLayout(1,2));
+
+        if(SimulationSingleton.getInstance().getSupplyChain().getSuiviCouts().getCoutForPartiePrenante(PartiePrenante.UNDEFINED).size() > 0 ){
+            JTextArea detailNonGereLabel = new JTextArea(getTextPartiePrenant(PartiePrenante.UNDEFINED));
+            detailNonGereLabel.setFont(detailFournisseurLabel.getFont().deriveFont(11f));
+            detailNonGereLabel.setEditable(false);
+            detailNonGereLabel.setBackground(fournisseurResult.getBackground());
+            detailsGridContainer.add(detailNonGereLabel);
+
+            JLabel nonGereResult =new JLabel("Cout non géré par l'incoterm " + supplyChain.getIncoterm().getType().toString() + " : " + supplyChain.getCoutsPourPartiePrenante(PartiePrenante.UNDEFINED));
+            resultContainer.add(nonGereResult);
+        }
+
+        jPanel.add(resultContainer);
+        detailsGridContainer.setLayout(new GridLayout(1,3));
         jPanel.add(detailsGridContainer);
 
 
