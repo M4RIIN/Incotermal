@@ -67,7 +67,7 @@ public class ResultView extends JFrame {
     }
 
     private static String getTextPartiePrenant(PartiePrenante partiePrenante) {
-        StringBuilder result = new StringBuilder("DETAILS FOURNISSEUR : \n");
+        StringBuilder result = new StringBuilder("DETAILS "+ partiePrenante.toString()+" : \n");
         List<CoutAssocie> coupAssocies =  SimulationSingleton.getInstance().getSupplyChain().getSuiviCouts().getCoutForPartiePrenante(partiePrenante);
         for(CoutAssocie ca : coupAssocies){
                 result.append(ca.getEtape().getType().toString()).append("\n");
