@@ -1,10 +1,10 @@
-package org.example.view;
+package org.lagrange.view;
 
-import org.example.SimulationSingleton;
-import org.example.domain.entity.CoutAssocie;
-import org.example.domain.entity.CoutEtape;
-import org.example.domain.entity.PartiePrenante;
-import org.example.domain.entity.SupplyChain;
+import org.lagrange.SimulationSingleton;
+import org.lagrange.domain.entity.CoutAssocie;
+import org.lagrange.domain.entity.CoutEtape;
+import org.lagrange.domain.entity.PartiePrenante;
+import org.lagrange.domain.entity.SupplyChain;
 
 import javax.swing.*;
 import java.awt.*;

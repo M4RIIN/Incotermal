@@ -1,6 +1,6 @@
-package org.example;
+package org.lagrange;
 
-import org.example.domain.entity.SupplyChain;
+import org.lagrange.domain.entity.SupplyChain;
 
 public class SimulationSingleton {
 

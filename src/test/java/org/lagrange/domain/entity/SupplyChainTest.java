@@ -1,4 +1,4 @@
-package org.example.domain.entity;
+package org.lagrange.domain.entity;
 
 import org.junit.jupiter.api.Test;
 

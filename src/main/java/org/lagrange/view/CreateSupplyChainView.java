@@ -1,25 +1,23 @@
-package org.example.view;
+package org.lagrange.view;
 
-import org.example.EtapeUtils;
-import org.example.SimulationSingleton;
-import org.example.domain.entity.*;
+import org.lagrange.EtapeUtils;
+import org.lagrange.SimulationSingleton;
+import org.lagrange.domain.entity.*;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CreateSupplyChainView extends JPanel {
 
-    private final JComboBox comboBox ;
+    private final JComboBox<String> comboBox ;
 
     public CreateSupplyChainView() {
-        comboBox = new JComboBox(getAllIncotermName());
+        comboBox = new JComboBox<>(getAllIncotermName());
         List<Etape> etapes = getEtapes();
         SupplyChain supplyChain = new SupplyChain(etapes, new Incoterm(IncotermType.FOB,new FobStrategy()));
         SimulationSingleton.getInstance().setSupplyChain(supplyChain);

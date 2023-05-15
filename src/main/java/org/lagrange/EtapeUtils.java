@@ -1,9 +1,9 @@
-package org.example;
+package org.lagrange;
 
-import org.example.domain.entity.CoutEtape;
-import org.example.domain.entity.Etape;
-import org.example.domain.entity.EtapeCollecte;
-import org.example.domain.entity.EtapeType;
+import org.lagrange.domain.entity.CoutEtape;
+import org.lagrange.domain.entity.Etape;
+import org.lagrange.domain.entity.EtapeCollecte;
+import org.lagrange.domain.entity.EtapeType;
 
 import java.util.ArrayList;
 import java.util.Arrays;

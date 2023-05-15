@@ -1,4 +1,4 @@
-package org.example.view;
+package org.lagrange.view;
 
 import javax.swing.*;
 import java.awt.*;
