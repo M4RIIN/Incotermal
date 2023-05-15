@@ -49,7 +49,7 @@
                                 </manifest>
                             </archive>
                             <descriptorRefs>
-                                <descriptorRef>Incoterm</descriptorRef>
+                                <descriptorRef>Incoterm.jar</descriptorRef>
                             </descriptorRefs>
                         </configuration>
                     </execution>
