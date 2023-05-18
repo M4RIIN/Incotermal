@@ -1,0 +1,27 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.grid-item {
+  padding: 10px;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.example-disabled {
+  display: inline-block;
+}
+
+.fab-button-extended {
+  width: 120px; /* Largeur personnalisée */
+  border-radius: 50px; /* Bords arrondis personnalisés */
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+}
+

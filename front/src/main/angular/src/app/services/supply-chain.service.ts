@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SuiviCouts, SupplyChain } from 'src/assets/model/model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,5 +12,13 @@ export class SupplyChainService {
 
   getTest(){
     return this.http.get(environment.baseUrl + "/test",{responseType :'text'});
+  }
+
+  getSupplyChainInit(){
+    return this.http.get<SupplyChain>(environment.baseUrl + "/supply-chain?incoterm=FOB",{responseType :'json'});
+  }
+
+  getSimulationResult(supplyChain: SupplyChain){
+    return this.http.post<SuiviCouts>(environment.baseUrl + "/supply-chain",supplyChain, {responseType : 'json'});
   }
 }
