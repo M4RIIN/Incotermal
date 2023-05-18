@@ -12,7 +12,7 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 import java.io.IOException;
 
 @Configuration
-@Profile("production")
+@Profile("prod")
 public class MvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
