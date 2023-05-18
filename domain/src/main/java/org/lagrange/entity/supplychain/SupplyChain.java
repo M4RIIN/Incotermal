@@ -1,4 +1,6 @@
-package org.lagrange.entity;
+package org.lagrange.entity.supplychain;
+
+import org.lagrange.entity.incoterm.Incoterm;
 
 import java.util.List;
 import java.util.stream.Collectors;

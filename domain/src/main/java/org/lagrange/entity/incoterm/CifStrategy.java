@@ -1,4 +1,9 @@
-package org.lagrange.entity;
+package org.lagrange.entity.incoterm;
+
+import org.lagrange.entity.supplychain.CoutAssocie;
+import org.lagrange.entity.supplychain.Etape;
+import org.lagrange.entity.supplychain.EtapeType;
+import org.lagrange.entity.supplychain.PartiePrenante;
 
 import java.util.Arrays;
 

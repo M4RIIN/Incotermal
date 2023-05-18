@@ -1,4 +1,6 @@
-package org.lagrange.entity;
+package org.lagrange.entity.supplychain;
+
+import org.lagrange.entity.incoterm.PaiementStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,5 +22,9 @@ public class SuiviCouts {
         return coutAssocies.stream()
                 .filter(coutAssocie -> coutAssocie.getPartiePrenante().equals(partiePrenante))
                 .collect(Collectors.toList());
+    }
+
+    public List<CoutAssocie> getCoutAssocies() {
+        return coutAssocies;
     }
 }

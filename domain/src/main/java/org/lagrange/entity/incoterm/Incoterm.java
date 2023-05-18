@@ -1,4 +1,4 @@
-package org.lagrange.entity;
+package org.lagrange.entity.incoterm;
 
 public class Incoterm {
 

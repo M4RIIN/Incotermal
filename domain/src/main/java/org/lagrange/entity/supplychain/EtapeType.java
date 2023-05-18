@@ -1,4 +1,4 @@
-package org.lagrange.entity;
+package org.lagrange.entity.supplychain;
 
 public enum EtapeType {
     COLLECTE,
