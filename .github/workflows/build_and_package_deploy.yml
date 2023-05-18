@@ -39,7 +39,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - run: mvn -B package --file pom.xml -DskipTests
-      - run: mkdir staging && cp target/*jar-with-dependencies.jar staging
+      - run: mkdir staging && cp server/target/server-2.7.5-jar-with-dependencies.jar staging
       - uses: actions/upload-artifact@v1
         with:
           name: Package
