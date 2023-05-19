@@ -21,7 +21,15 @@
   width: 120px; /* Largeur personnalisée */
   border-radius: 50px; /* Bords arrondis personnalisés */
   position: fixed;
-  bottom: 20px;
-  right: 50px;
+  bottom: 10px;
+  right: 10px;
+}
+
+.fab-button-extended-random {
+  width: 120px; /* Largeur personnalisée */
+  border-radius: 50px; /* Bords arrondis personnalisés */
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
 }
 

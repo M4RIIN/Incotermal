@@ -35,7 +35,7 @@
           <span>
             <div class="grid-container">
               <div class="grid-item" *ngFor="let ce of etape.coutEtape">
-                <mat-form-field [matTooltip]="ce.description" style="width: 100px;">
+                <mat-form-field [matTooltip]="ce.description" style="max-width: 200px;">
                   <mat-label >{{ce.description}}</mat-label>
                   <input matInput type="number" placeholder="Ex. 94105" disabled="" [value]="ce.cout">
                 </mat-form-field>
@@ -101,6 +101,7 @@
     </mat-expansion-panel>
 </mat-accordion>
 </div>
+<app-result-chart [supplyChain]="data"></app-result-chart>
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>

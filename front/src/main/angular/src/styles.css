@@ -2,3 +2,11 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-red {
+  color: #fff !important;
+  background-color: #a85d5b !important;
+}
+.mat-success[disabled] {
+  background-color: rgba(150, 58, 58, 0.345) !important;
+}

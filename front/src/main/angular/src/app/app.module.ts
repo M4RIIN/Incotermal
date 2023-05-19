@@ -17,12 +17,14 @@ import { ResultDialogComponent } from './result-dialog/result-dialog.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ResultChartComponent } from './result-chart/result-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ResultDialogComponent,
+    ResultChartComponent,
   ],
   imports: [
     BrowserModule,

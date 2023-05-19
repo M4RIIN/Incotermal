@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
       this.supplyChain.suiviCouts = res;
       const dialogRef = this.dialog.open(ResultDialogComponent, {
         data: this.supplyChain,
+        width: "100%",
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -65,6 +66,15 @@ export class HomeComponent implements OnInit {
 
   getSlicedCharDesc(){
     return this.definitionIncoterm.slice(1);
+  }
+
+  randomData(){
+    this.supplyChain.etapes.forEach(etape =>{
+      etape.coutEtape.forEach(coutEtape =>{
+        let randomValue =Math.floor(Math.random() * 5000);
+        coutEtape.cout = randomValue;
+      })
+    })
   }
 
 }
