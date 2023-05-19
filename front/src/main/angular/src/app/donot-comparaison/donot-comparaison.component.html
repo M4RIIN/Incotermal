@@ -1,0 +1,7 @@
+<div style="width: 100%; height: 100%; float: left; position: relative;">
+  <div
+      style="width: 100%; height: 40px; position: absolute; top: 50%; left: 0; margin-top: -20px; line-height:19px; text-align: center; z-index: 999999999999999">
+      {{mot}} de {{val1 | number : '1.2-2'}}% <br>avec {{inco}} pour {{pp}}
+  </div>
+  <canvas *ngIf="name !== ''" id="{{name}}" width="100" height="100" ></canvas>
+</div>

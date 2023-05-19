@@ -7,6 +7,8 @@ import org.lagrange.entity.supplychain.SupplyChain;
 import org.lagrange.entity.utils.SupplyChainUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +22,7 @@ public class SupplyChainController {
         return toRest(SupplyChainUtils.createSupplyChain(incoterme));
     }
 
-    private static org.lagrange.entity.incoterm.Incoterm getIncotermFromStringType(String incoterm) {
+    private org.lagrange.entity.incoterm.Incoterm getIncotermFromStringType(String incoterm) {
         org.lagrange.entity.incoterm.Incoterm incoterme = new org.lagrange.entity.incoterm.Incoterm(IncotermType.FOB,new FobStrategy());
         IncotermType incotermType = IncotermType.valueOf(incoterm);
         switch (incotermType){
@@ -36,6 +38,23 @@ public class SupplyChainController {
         SupplyChain supplyChain = toDomain(supplyChainRest);
         supplyChain.start();
         return toRest(supplyChain.getSuiviCouts());
+    }
+
+    @PostMapping("/api/supply-chain/compare")
+            public SuiviCoupListResponse getInitialSupplyChain(@RequestBody SupplyChainRest supplyChainRest, @RequestParam(name = "types") String types){
+        String[] typesArray = types.split(",");
+        List<SuiviCouts> res = new ArrayList<>();
+        for(String incoterm : typesArray){
+            Incoterm inco = new Incoterm();
+            inco.setType(incoterm);
+            supplyChainRest.setIncoterm(inco);
+            SupplyChain supplyChain = toDomain(supplyChainRest);
+            supplyChain.start();
+            res.add(toRest(supplyChain.getSuiviCouts()));
+        }
+        SuiviCoupListResponse suiviCoupListResponse = new SuiviCoupListResponse();
+        suiviCoupListResponse.setSuivisCouts(res);
+        return suiviCoupListResponse;
     }
 
     private SuiviCouts toRest(org.lagrange.entity.supplychain.SuiviCouts suiviCouts) {

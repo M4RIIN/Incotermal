@@ -32,4 +32,6 @@ export class ResultDialogComponent implements OnInit {
     return this.data.suiviCouts.coutAssocies.filter(elt => elt.partiePrenante === partiePrenante).map(elt => elt.etape);
   }
 
+
+
 }

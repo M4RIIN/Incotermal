@@ -18,6 +18,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ResultChartComponent } from './result-chart/result-chart.component';
+import { DonotComparaisonComponent } from './donot-comparaison/donot-comparaison.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ResultChartComponent } from './result-chart/result-chart.component';
     HomeComponent,
     ResultDialogComponent,
     ResultChartComponent,
+    DonotComparaisonComponent,
   ],
   imports: [
     BrowserModule,

@@ -127,3 +127,16 @@ public class SupplyChainRest {
         this.partiePrenante = partiePrenante;
     }
 }
+
+
+class SuiviCoupListResponse {
+    private List<SuiviCouts> suivisCouts;
+
+    public List<SuiviCouts> getSuivisCouts() {
+        return suivisCouts;
+    }
+
+    public void setSuivisCouts(List<SuiviCouts> suivisCouts) {
+        this.suivisCouts = suivisCouts;
+    }
+}

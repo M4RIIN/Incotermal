@@ -52,4 +52,9 @@ export class CoutAssocie{
     this.etape = new Etape();
     this.partiePrenante = "";
   }
+
+}
+
+export class SuiviCoupListResponse{
+  suivisCouts: SuiviCouts[] = [];
 }
