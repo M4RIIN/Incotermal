@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ResultChartComponent } from './result-chart/result-chart.component';
 import { DonotComparaisonComponent } from './donot-comparaison/donot-comparaison.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DonotComparaisonComponent } from './donot-comparaison/donot-comparaison
     ResultDialogComponent,
     ResultChartComponent,
     DonotComparaisonComponent,
+    AccueilComponent,
   ],
   imports: [
     BrowserModule,

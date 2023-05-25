@@ -58,3 +58,14 @@ export class CoutAssocie{
 export class SuiviCoupListResponse{
   suivisCouts: SuiviCouts[] = [];
 }
+
+export class CoutRevientMargeCommercialeRest{
+  quantite :number = 0;
+  coutAchatMatierePremiere :number = 0;
+  mainOeuvre :number = 0;
+  autreChargeVariables :number = 0;
+  chargesFixes :number = 0;
+  conditionnement :number = 0;
+  margeCommercialeDepartUsine :number = 0;
+
+}

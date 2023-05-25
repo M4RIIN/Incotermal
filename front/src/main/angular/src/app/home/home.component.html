@@ -30,25 +30,7 @@
 </div>
 
 <div  style="flex: auto;background-color: #FAB54E;padding-top: 30px;padding-left: 50px;padding-right: 50px;padding-bottom: 50px;">
-  <div class="grid-container" >
-      <mat-card class="example-card" class="grid-item" *ngFor="let etape of supplyChain.etapes">
-        <mat-card-header>
-          <mat-card-title>{{etape.type}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="grid-container">
-            <div class="grid-item" *ngFor="let ce of etape.coutEtape">
-              <mat-form-field
-              class="example-full-width">
-                <mat-label>{{ce.description}}</mat-label>
-                <input matInput type="number" placeholder="Ex. 94105" [(ngModel)]="ce.cout">
-                <mat-hint>Euros €</mat-hint>
-              </mat-form-field>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
+
 
 </div>
 <button mat-fab color="primary" class="fab-button-extended" (click)="simulate()">

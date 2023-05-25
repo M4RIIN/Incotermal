@@ -1,0 +1,60 @@
+/* .card-container{
+  margin: 10px;
+  width: 100% !important;
+  flex: 1 !important;
+  flex:1;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+} */
+
+.grid-container > div{
+
+    /* flex: 1 1 50px; */
+    /* flex: 1; */
+
+}
+
+/* .example-form-field{
+  width: 100% !important;
+}
+::ng-deep mat-form-field-infix{
+  width: 100%;
+} */
+
+.card{
+  flex: 1;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.example-form-field{
+  flex: 1;
+  max-width: 100px;
+  margin: auto;
+}
+
+.calculButton{
+  border-radius: 0px 0px 20px 20px;
+}
+
+.mat-card{
+  display:flex;
+  flex-direction: column;
+}
+
+.mat-card-header {
+  flex-shrink: 0;
+}
+
+.mat-card-content{
+  height: 100%;
+  overflow: auto;
+}
+
+mat-form-field{
+  margin: auto !important;
+}

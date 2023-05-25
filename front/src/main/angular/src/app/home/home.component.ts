@@ -13,7 +13,7 @@ import { cif_desc, fas_desc, fob_desc } from 'src/assets/const';
 export class HomeComponent implements OnInit {
  supplyChain: SupplyChain = new SupplyChain();
  panelOpenState = true;
- definitionIncoterm = "";
+  definitionIncoterm = "";
 
 
   constructor(private supplyChainService: SupplyChainService,public dialog: MatDialog) {

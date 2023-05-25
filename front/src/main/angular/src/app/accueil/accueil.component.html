@@ -1,0 +1,272 @@
+<div style="background-color: #FAB54E;width: 100%; height: 100%;">
+  <div style="background-color: whitesmoke;text-align: center;height: 100px;display: flex;">
+    <h1 style="margin: auto;color: #FAB54E;text-transform: uppercase;font-weight: 900;">Méthode de calcul de l'EXW</h1>
+  </div>
+  <div style="display: flex;flex-direction: row;width: 100%;flex-wrap: wrap;background-color: #FAB54E;padding-top: 40px;">
+    <mat-card class="card">
+     <h2 style="font-size:medium;text-align: center;white-space: nowrap">
+       Coût de revient et Marge Commerciale
+     </h2>
+     <mat-card-content style="display: flex;flex-wrap: wrap;text-align: center;">
+      <mat-form-field class="example-form-field">
+        <mat-label>Quantité</mat-label>
+        <input matInput type="number" [(ngModel)]="quantity">
+        <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field class="example-form-field">
+        <mat-label>Coût Achat Matière Première</mat-label>
+        <input matInput type="number" [(ngModel)]="coutAchatMatierePremiere">
+        <button *ngIf="coutAchatMatierePremiere" matSuffix mat-icon-button aria-label="Clear" (click)="coutAchatMatierePremiere=0">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field class="example-form-field">
+        <mat-label>Main d'Oeuvre</mat-label>
+        <input matInput type="number" [(ngModel)]="mainOeuvre">
+        <button *ngIf="mainOeuvre" matSuffix mat-icon-button aria-label="Clear" (click)="mainOeuvre=0">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field class="example-form-field">
+        <mat-label>Conditionnement</mat-label>
+        <input matInput type="number" [(ngModel)]="conditionnement">
+        <button *ngIf="conditionnement" matSuffix mat-icon-button aria-label="Clear" (click)="conditionnement=0">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field class="example-form-field">
+        <mat-label>1utre Charge Variables</mat-label>
+        <input matInput type="number" [(ngModel)]="autreChargeVariables">
+        <button *ngIf="autreChargeVariables" matSuffix mat-icon-button aria-label="Clear" (click)="autreChargeVariables=0">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field class="example-form-field">
+        <mat-label>Charges Fixes</mat-label>
+        <input matInput type="number" [(ngModel)]="chargesFixes">
+        <button *ngIf="chargesFixes" matSuffix mat-icon-button aria-label="Clear" (click)="chargesFixes=0">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field class="example-form-field">
+        <mat-label>Marge Commerciale (Départ Usine)</mat-label>
+        <input matInput type="number" [(ngModel)]="margeCommercialeDepartUsine">
+        <button *ngIf="margeCommercialeDepartUsine" matSuffix mat-icon-button aria-label="Clear" (click)="margeCommercialeDepartUsine=0">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+     </mat-card-content>
+     <mat-card-footer>
+      <button class="calculButton" mat-flat-button extended color="primary" style="width: 100%;" (click)="calculCRMC()">
+        <mat-icon>functions</mat-icon>
+        Calculer
+      </button>
+     </mat-card-footer>
+    </mat-card>
+
+
+    <div style="display: flex;flex-wrap: wrap;flex: 2;flex-direction: column;">
+
+
+      <mat-card  class="card">
+        <h2 style="font-size:medium;text-align: center;white-space: nowrap">
+          Prix de Vente Unitaire et Quantité
+        </h2>
+        <mat-card-content style="display: flex;flex-wrap: wrap;text-align: center;">
+          <mat-form-field class="example-form-field">
+            <mat-label>Quantité</mat-label>
+            <input matInput type="number" [(ngModel)]="quantity">
+            <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+            <mat-label>Quantité</mat-label>
+            <input matInput type="number" [(ngModel)]="quantity">
+            <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-footer>
+          <button class="calculButton" mat-flat-button extended color="primary" style="width: 100%;">
+            <mat-icon>functions</mat-icon>
+            Calculer
+          </button>
+         </mat-card-footer>
+        </mat-card>
+        <mat-card  class="card">
+          <h2 style="font-size:medium;text-align: center;white-space: nowrap">
+            Prix de Vente du Produit et Emballage
+          </h2>
+          <mat-card-content style="display: flex;flex-wrap: wrap;text-align: center;">
+            <mat-form-field class="example-form-field">
+              <mat-label>Quantité</mat-label>
+              <input matInput type="number" [(ngModel)]="quantity">
+              <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+              <mat-label>Quantité</mat-label>
+              <input matInput type="number" [(ngModel)]="quantity">
+              <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+              <mat-label>Quantité</mat-label>
+              <input matInput type="number" [(ngModel)]="quantity">
+              <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+              <mat-label>Quantité</mat-label>
+          <input matInput type="number" [(ngModel)]="quantity">
+          <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field class="example-form-field">
+          <mat-label>Quantité</mat-label>
+          <input matInput type="number" [(ngModel)]="quantity">
+          <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-footer>
+        <button class="calculButton" mat-flat-button extended color="primary" style="width: 100%;">
+          <mat-icon>functions</mat-icon>
+          Calculer
+        </button>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+
+    <!-- <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            Coût de revient et Marge Commerciale
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="grid-container" >
+          <mat-form-field class="example-form-field">
+            <mat-label>Quantité</mat-label>
+            <input matInput type="number" [(ngModel)]="quantity">
+            <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+            <mat-label>Cout Achat Matière Première</mat-label>
+            <input matInput type="number" [(ngModel)]="coutAchatMatierePremiere">
+            <button *ngIf="coutAchatMatierePremiere" matSuffix mat-icon-button aria-label="Clear" (click)="coutAchatMatierePremiere=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+            <mat-label>Main d'oeuvre</mat-label>
+            <input matInput type="number" [(ngModel)]="mainOeuvre">
+            <button *ngIf="mainOeuvre" matSuffix mat-icon-button aria-label="Clear" (click)="mainOeuvre=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+            <mat-label>Autres Charges Variables</mat-label>
+            <input matInput type="number" [(ngModel)]="autreChargeVariables">
+            <button *ngIf="autreChargeVariables" matSuffix mat-icon-button aria-label="Clear" (click)="autreChargeVariables=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+            <mat-label>Charges Fixes</mat-label>
+            <input matInput type="number" [(ngModel)]="chargesFixes">
+            <button *ngIf="chargesFixes" matSuffix mat-icon-button aria-label="Clear" (click)="chargesFixes=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+            <mat-label>Conditionnement</mat-label>
+            <input matInput type="number" [(ngModel)]="conditionnement">
+            <button *ngIf="conditionnement" matSuffix mat-icon-button aria-label="Clear" (click)="conditionnement=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+            <mat-label>Marge Commerciale (Depart Usine)</mat-label>
+            <input matInput type="number" [(ngModel)]="margeCommercialeDepartUsine">
+            <button *ngIf="margeCommercialeDepartUsine" matSuffix mat-icon-button aria-label="Clear" (click)="margeCommercialeDepartUsine=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="card-container">
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            Coût de revient et Marge Commerciale
+          </mat-card-title>
+        </mat-card-header>
+      <mat-card-content class="grid-container" >
+      <div style="flex: 1;width: 100%;background-color: #FAB54E;">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Quantité</mat-label>
+          <input matInput type="number" [(ngModel)]="quantity">
+          <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div  style="flex: 1;width: 100%;background-color: rebeccapurple;">
+        <mat-form-field class="example-form-field">
+          <mat-label>Prix de Vente Unitaire</mat-label>
+          <input matInput type="number" [(ngModel)]="prixVenteUnitaire">
+          <button *ngIf="prixVenteUnitaire" matSuffix mat-icon-button aria-label="Clear" (click)="prixVenteUnitaire=0">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="card-container">
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Coût de revient et Marge Commerciale
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="grid-container" >
+        <div>
+
+          <mat-form-field class="example-form-field">
+            <mat-label>Quantité</mat-label>
+            <input matInput type="number" [(ngModel)]="quantity">
+            <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-form-field">
+            <mat-label>Prix de Vente Unitaire</mat-label>
+            <input matInput type="number" [(ngModel)]="prixVenteUnitaire">
+            <button *ngIf="prixVenteUnitaire" matSuffix mat-icon-button aria-label="Clear" (click)="prixVenteUnitaire=0">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        </mat-card-content>
+    </mat-card> -->
+  </div>
+</div>
