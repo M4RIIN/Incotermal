@@ -105,6 +105,21 @@ public class ExwCalculParameters {
             return this;
         }
 
+        public Builder setParametersForPrixDeVenteUnitaire(double quantite, double prixVenteUnitaire){
+            this.quantite = quantite;
+            this.prixVenteUnitaire = prixVenteUnitaire;
+            return this;
+        }
+
+       public Builder setPrixVenteProduitEtEmballage(double quantite, double masseBruteProduitEtEmballage, double masseBruteEmballage, double prixProduitUnitaire, double prixEmballageUnitaire) {
+           this.quantite = quantite;
+           this.masseBruteProduitEtEmballage = masseBruteProduitEtEmballage;
+           this.masseBruteEmballage = masseBruteEmballage;
+           this.prixProduitUnitaire = prixProduitUnitaire;
+           this.prixEmballageUnitaire = prixEmballageUnitaire;
+           return this;
+       }
+
 
         public Builder setQuantite(double quantite) {
             this.quantite = quantite;

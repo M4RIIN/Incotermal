@@ -69,3 +69,16 @@ export class CoutRevientMargeCommercialeRest{
   margeCommercialeDepartUsine :number = 0;
 
 }
+
+export class PrixVenteUnitaireRest {
+quantite :number = 0;
+prixVenteUnitaire : number = 0;
+}
+
+export class PrixVenteProduitEtEmballageRest {
+  quantite = 0;
+  masseBruteProduitEtEmballage = 0;
+  masseBruteEmballage = 0;
+  prixProduitUnitaire = 0;
+  prixEmballageUnitaire = 0;
+}

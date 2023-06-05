@@ -10,7 +10,15 @@ export class ExwService {
 
   constructor(private http: HttpClient) { }
 
-  getSimulationResult(cout: CoutRevientMargeCommercialeRest){
+  getCrAndMc(cout: CoutRevientMargeCommercialeRest){
     return this.http.post<number>(environment.baseUrl + "/cout-revient-marge-com",cout);
+  }
+
+  getPVUAdnQ(cout:any){
+    return this.http.post<number>(environment.baseUrl + "/vente-unitaire",cout);
+  }
+
+  getPVAndPE(cout:any){
+    return this.http.post<number>(environment.baseUrl + "/vente-produit",cout);
   }
 }
