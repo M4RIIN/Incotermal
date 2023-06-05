@@ -1,9 +1,10 @@
 package com.lagrange.controller;
 
 import com.lagrange.controller.rest.CoutRevientMargeCommercialeRest;
+import com.lagrange.controller.rest.PrixVenteProduitEtEmballageRest;
+import com.lagrange.controller.rest.PrixVenteUnitaireRest;
 import org.lagrange.entity.exw.ExwCalculParameters;
 import org.lagrange.usecase.ExwUseCase;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,25 +31,20 @@ public class EXWController {
     }
 
     @PostMapping("/api/vente-unitaire")
-    public Double getVenteUnitaire(@RequestBody CoutRevientMargeCommercialeRest rest){
+    public Double getVenteUnitaire(@RequestBody PrixVenteUnitaireRest rest){
         ExwCalculParameters exwCalculParameters = new ExwCalculParameters.Builder()
-                .setParametersForCalculCoutRevient(
-                        rest.getQuantite(),rest.getCoutAchatMatierePremiere(),
-                        rest.getMainOeuvre(),rest.getAutreChargeVariables(),
-                        rest.getChargesFixes(),rest.getConditionnement(),
-                        rest.getMargeCommercialeDepartUsine()
+                .setParametersForPrixDeVenteUnitaire(
+                        rest.getQuantite(),rest.getPrixVenteUnitaire()
                 ).build();
         return exwUseCase.getCoutVenteUnitaire(exwCalculParameters);
     }
 
     @PostMapping("/api/vente-produit")
-    public Double getVenteProduit(@RequestBody CoutRevientMargeCommercialeRest rest){
+    public Double getVenteProduit(@RequestBody PrixVenteProduitEtEmballageRest rest){
         ExwCalculParameters exwCalculParameters = new ExwCalculParameters.Builder()
-                .setParametersForCalculCoutRevient(
-                        rest.getQuantite(),rest.getCoutAchatMatierePremiere(),
-                        rest.getMainOeuvre(),rest.getAutreChargeVariables(),
-                        rest.getChargesFixes(),rest.getConditionnement(),
-                        rest.getMargeCommercialeDepartUsine()
+                .setPrixVenteProduitEtEmballage(
+                        rest.getQuantite(), rest.getMasseBruteProduitEtEmballage(),
+                        rest.getMasseBruteEmballage(),rest.getPrixProduitUnitaire(),rest.getPrixEmballageUnitaire()
                 ).build();
         return exwUseCase.getCoutVenteProduit(exwCalculParameters);
     }

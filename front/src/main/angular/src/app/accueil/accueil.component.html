@@ -83,15 +83,15 @@
             </button>
           </mat-form-field>
           <mat-form-field class="example-form-field">
-            <mat-label>Quantité</mat-label>
-            <input matInput type="number" [(ngModel)]="quantity">
-            <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+            <mat-label>prix Vente Unitaire Produit</mat-label>
+            <input matInput type="number" [(ngModel)]="prixVenteUnitaire">
+            <button *ngIf="prixVenteUnitaire" matSuffix mat-icon-button aria-label="Clear" (click)="prixVenteUnitaire=0">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
         </mat-card-content>
         <mat-card-footer>
-          <button class="calculButton" mat-flat-button extended color="primary" style="width: 100%;">
+          <button (click)="calculPVUAndQ()" class="calculButton" mat-flat-button extended color="primary" style="width: 100%;">
             <mat-icon>functions</mat-icon>
             Calculer
           </button>
@@ -110,36 +110,36 @@
               </button>
             </mat-form-field>
             <mat-form-field class="example-form-field">
-              <mat-label>Quantité</mat-label>
-              <input matInput type="number" [(ngModel)]="quantity">
-              <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+              <mat-label>Masse Brute Produit Et Emballage</mat-label>
+              <input matInput type="number" [(ngModel)]="masseBruteProduitEtEmballage">
+              <button *ngIf="masseBruteProduitEtEmballage" matSuffix mat-icon-button aria-label="Clear" (click)="masseBruteProduitEtEmballage=0">
                 <mat-icon>close</mat-icon>
               </button>
             </mat-form-field>
             <mat-form-field class="example-form-field">
-              <mat-label>Quantité</mat-label>
-              <input matInput type="number" [(ngModel)]="quantity">
-              <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+              <mat-label>Masse Brute Emballage</mat-label>
+              <input matInput type="number" [(ngModel)]="masseBruteEmballage">
+              <button *ngIf="masseBruteEmballage" matSuffix mat-icon-button aria-label="Clear" (click)="masseBruteEmballage=0">
                 <mat-icon>close</mat-icon>
               </button>
             </mat-form-field>
             <mat-form-field class="example-form-field">
-              <mat-label>Quantité</mat-label>
-          <input matInput type="number" [(ngModel)]="quantity">
-          <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+              <mat-label>Prix Emballage Unitaire</mat-label>
+          <input matInput type="number" [(ngModel)]="prixEmballageUnitaire">
+          <button *ngIf="prixEmballageUnitaire" matSuffix mat-icon-button aria-label="Clear" (click)="prixEmballageUnitaire=0">
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
         <mat-form-field class="example-form-field">
-          <mat-label>Quantité</mat-label>
-          <input matInput type="number" [(ngModel)]="quantity">
-          <button *ngIf="quantity" matSuffix mat-icon-button aria-label="Clear" (click)="quantity=0">
+          <mat-label>Prix Produit Unitaire</mat-label>
+          <input matInput type="number" [(ngModel)]="prixProduitUnitaire">
+          <button *ngIf="prixProduitUnitaire" matSuffix mat-icon-button aria-label="Clear" (click)="prixProduitUnitaire=0">
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </mat-card-content>
       <mat-card-footer>
-        <button class="calculButton" mat-flat-button extended color="primary" style="width: 100%;">
+        <button (click)="calculPVPAndE()" class="calculButton" mat-flat-button extended color="primary" style="width: 100%;">
           <mat-icon>functions</mat-icon>
           Calculer
         </button>

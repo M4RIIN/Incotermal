@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExwService } from '../services/exw.service';
 import { MatDialog } from '@angular/material/dialog';
-import { CoutRevientMargeCommercialeRest } from 'src/assets/model/model';
+import { CoutRevientMargeCommercialeRest, PrixVenteProduitEtEmballageRest, PrixVenteUnitaireRest } from 'src/assets/model/model';
 import { ResultEXWDialogComponent } from '../result-exw-dialog/result-exw-dialog.component';
 
 @Component({
@@ -18,8 +18,12 @@ export class AccueilComponent implements OnInit {
   chargesFixes:number = 0;
   conditionnement:number = 0;
   margeCommercialeDepartUsine:number = 0;
-
   prixVenteUnitaire:number = 0;
+
+  masseBruteProduitEtEmballage = 0;
+  masseBruteEmballage =0 ;
+  prixProduitUnitaire =0;
+  prixEmballageUnitaire =0;
 
   constructor(private exwService: ExwService, private dialog: MatDialog) { }
 
@@ -36,16 +40,42 @@ export class AccueilComponent implements OnInit {
     coutRevientMargeCommercialeRest.margeCommercialeDepartUsine = this.margeCommercialeDepartUsine;
     coutRevientMargeCommercialeRest.quantite = this.quantity;
 
-    this.exwService.getSimulationResult(coutRevientMargeCommercialeRest).subscribe(res =>{
-      console.log(res);
-      const dialogRef = this.dialog.open(ResultEXWDialogComponent, {
-        data: res,
-      });
+    this.exwService.getCrAndMc(coutRevientMargeCommercialeRest).subscribe(res =>{
+      this.displayResEXW(res);
+    });
+     
+  }
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-      });
+  calculPVUAndQ(){
+    let cout = new PrixVenteUnitaireRest();
+    cout.prixVenteUnitaire = this.prixVenteUnitaire;
+    cout.quantite = this.quantity;
+    this.exwService.getPVUAdnQ(cout).subscribe(res => {
+      this.displayResEXW(res);
     })
+  }
+
+  calculPVPAndE(){
+    let cout = new PrixVenteProduitEtEmballageRest();
+    cout.quantite = this.quantity;
+    cout.masseBruteProduitEtEmballage = this.masseBruteProduitEtEmballage;
+    cout.masseBruteEmballage = this.masseBruteEmballage;
+    cout.prixProduitUnitaire = this.prixProduitUnitaire;
+    cout.prixEmballageUnitaire = this.prixEmballageUnitaire;
+    this.exwService.getPVAndPE(cout).subscribe(res => {
+      this.displayResEXW(res);
+    })
+  }
+
+  private displayResEXW(res:any){
+    console.log(res);
+    const dialogRef = this.dialog.open(ResultEXWDialogComponent, {
+      data: res,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }
