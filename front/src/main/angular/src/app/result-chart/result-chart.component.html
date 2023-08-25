@@ -1,0 +1,22 @@
+<div class="chart-container" style="width: 100%;display: flex;flex-direction: column;" >
+  <div style="margin: auto;height: 50px;">
+
+    <mat-form-field >
+      <mat-label>Comparer avec </mat-label>
+      <mat-select multiple="true" disableOptionCentering [(ngModel)]="typesComparaison">
+        <mat-option *ngFor="let inco of getIncotermListWithoutActual()" [value]="inco">{{inco}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button (click)="compare()">Comparer</button>
+  </div>
+  <canvas style="margin: auto;height: 300px;width: 100%;" id="MyChart">{{ chart }}</canvas>
+  <div *ngFor="let inco of typesComparaison" style="width: 100%;height: 300px;display: flex;flex-direction: column;" >
+    <h2 style="height: 30px;" mat-card-title>{{inco}}</h2>
+    <div *ngIf="chart.data.datasets.length > 3" style="display: flex;margin-top: 10px;flex: 1;">
+      <app-donot-comparaison  [inco]="inco" pp="Fournisseur"  [val1]='getTotalFournisseur(inco)' [name]="'four' +inco" style="flex: 1;"></app-donot-comparaison>
+      <app-donot-comparaison  [inco]="inco" pp="Acheteur"  [val1]='getTotalAcheteur(inco)' [name]="'ach'+inco" style="flex: 1;"></app-donot-comparaison>
+    </div>
+    <!-- <app-donot-comparaison name="ach" style="width: 100%;"></app-donot-comparaison> -->
+  </div>
+</div>
+

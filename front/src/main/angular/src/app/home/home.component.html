@@ -1,0 +1,45 @@
+<div style="height: 100%;display: flex;flex-direction: column;">
+
+  <div style="background-color: #FAB54E;width: 100%; min-height: 100px;display: flex;">
+    <div  style="margin: auto; display: flex;">
+      <div style="display: flex; margin-right: 15px;">
+        <h4 style="margin: auto;font-size: large;">Incoterm</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select (selectionChange)="onIncotermChange($event)" disableOptionCentering [(ngModel)]="supplyChain.incoterm.type">
+            <mat-option value="FOB">FOB</mat-option>
+            <mat-option value="CIF">CIF</mat-option>
+            <mat-option value="FAS">FAS</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  </div>
+</div>
+
+<div style="padding-bottom: 30px;">
+  <div style="margin-left: 20%;margin-right: 20%; margin-top: 30px; text-align: justify;">
+    <p>
+      <mat-icon color="accent" style="margin-right: 5px;font-size: 20px;">info_outlined</mat-icon>
+      <span style="font-size: 30px;">{{getFirstCharDesc()}}</span>
+      <span>
+          {{getSlicedCharDesc()}}
+      </span>
+    </p>
+  </div>
+</div>
+
+<div  style="flex: auto;background-color: #FAB54E;padding-top: 30px;padding-left: 50px;padding-right: 50px;padding-bottom: 50px;">
+
+
+</div>
+<button mat-fab color="primary" class="fab-button-extended" (click)="simulate()">
+  <mat-icon>trending_up</mat-icon>
+  <span>Simuler</span>
+</button>
+
+<button mat-fab color="red" class="fab-button-extended-random" (click)="randomData()">
+  <mat-icon>shuffle</mat-icon>
+  <span>Aléatoire</span>
+</button>
+</div>

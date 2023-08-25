@@ -1,0 +1,109 @@
+<h1 mat-dialog-title>Resultats pour simulation d'incoterm {{data.incoterm.type}}</h1>
+<div mat-dialog-content>
+<div style="min-height: 50px;background-color: #FAB54E;">
+  <div style="display: flex;padding-top: 10px;text-align: center;">
+    <div style="margin: auto;">
+      <h2>Acheteur</h2>
+      <h3>{{getSommeForPartiePrenant('ACHETEUR')}}</h3>
+    </div>
+    <div style="margin: auto;">
+      <h2>Fournisseur</h2>
+      <h3>{{getSommeForPartiePrenant('FOURNISSEUR')}}</h3>
+    </div>
+    <div style="margin: auto;" *ngIf="getEtapeForPartiePrenant('UNDEFINED').length">
+      <h2>Non Géré</h2>
+      <h3>{{getSommeForPartiePrenant('UNDEFINED')}}</h3>
+    </div>
+  </div>
+</div>
+<div style="margin-left: 10px;margin-right: 10px;margin-bottom: 10px;margin-top: 30px;">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Détails Acheteur
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="grid-container" >
+        <div class="example-card" class="grid-item" *ngFor="let etape of getEtapeForPartiePrenant('ACHETEUR')">
+          <h5>
+            {{etape.type}}
+          </h5>
+          <span>
+            <div class="grid-container">
+              <div class="grid-item" *ngFor="let ce of etape.coutEtape">
+                <mat-form-field [matTooltip]="ce.description" style="max-width: 200px;">
+                  <mat-label >{{ce.description}}</mat-label>
+                  <input matInput type="number" placeholder="Ex. 94105" disabled="" [value]="ce.cout">
+                </mat-form-field>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Détails Fournisseur
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="grid-container" >
+        <div class="example-card" class="grid-item" *ngFor="let etape of getEtapeForPartiePrenant('FOURNISSEUR')">
+          <h5>
+            {{etape.type}}
+          </h5>
+          <span>
+            <div class="grid-container">
+              <div class="grid-item" *ngFor="let ce of etape.coutEtape">
+                <mat-form-field [matTooltip]="ce.description" style="width: 100px;">
+                  <mat-label >{{ce.description}}</mat-label>
+                  <input matInput type="number" placeholder="Ex. 94105" disabled="" [value]="ce.cout">
+                </mat-form-field>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle *ngIf="getEtapeForPartiePrenant('UNDEFINED').length">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Détails Non Géré
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="grid-container" >
+        <div class="example-card" class="grid-item" *ngFor="let etape of getEtapeForPartiePrenant('UNDEFINED')">
+          <h5>
+            {{etape.type}}
+          </h5>
+          <span>
+            <div class="grid-container">
+              <div class="grid-item" *ngFor="let ce of etape.coutEtape">
+                <mat-form-field [matTooltip]="ce.description" style="width: 100px;">
+                  <mat-label >{{ce.description}}</mat-label>
+                  <input matInput type="number" placeholder="Ex. 94105" disabled="" [value]="ce.cout">
+                </mat-form-field>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+    </mat-expansion-panel>
+</mat-accordion>
+</div>
+<app-result-chart [supplyChain]="data"></app-result-chart>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div>
